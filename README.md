@@ -14,7 +14,6 @@ helm repo update
 ```
 Installation
 Install the chart with default values:
-```
 
 ```bash
 helm install wazuh-agent wazuh-agent/wazuh-agent \
