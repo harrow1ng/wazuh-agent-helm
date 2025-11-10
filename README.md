@@ -1,21 +1,24 @@
-Wazuh Agent Helm Chart
+# Wazuh Agent Helm Chart
 
-Deploy Wazuh Agent as a DaemonSet in Kubernetes using Helm.
+Deploy the **Wazuh Agent** as a **DaemonSet** in Kubernetes using Helm.
 
-Repository
+---
 
+## Repository
+
+Add the Helm repository to your local Helm client:
+
+```bash
 helm repo add wazuh-agent https://YOUR_GITHUB_USERNAME.github.io/wazuh-agent-chart/
 helm repo update
-
 Installation
-
 Install the chart with default values:
 
+bash
+Copy code
 helm install wazuh-agent wazuh-agent/wazuh-agent \
   --set manager.host=your-managers-ip \
   --set image.tag=4.13.1
-
-
 This will deploy a Wazuh Agent DaemonSet on all nodes in your cluster.
 
 Values
