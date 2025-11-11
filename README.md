@@ -16,6 +16,8 @@ Install the chart with default values:
 
 ```bash
 helm install wazuh-agent wazuh-agent/wazuh-agent \
+  --namespace wazuh-agent \
+  --create-namespace \
   --set manager.host=your-managers-ip \
   --set image.tag=4.13.1
 ```
