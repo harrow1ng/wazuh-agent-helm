@@ -37,5 +37,3 @@ tolerations	list	[]	Pod tolerations
 affinity	map	{}	Pod affinity rules
 resources	map	{}	Resource requests/limits
 ```
-
-
