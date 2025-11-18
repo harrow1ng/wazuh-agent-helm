@@ -14,7 +14,7 @@ spec:
       labels:
         app: {{ include "wazuh-agent.name" . }}
     spec:
-      hostPID: true
+      hostPID: false
       hostNetwork: true
       containers:
         - name: wazuh-agent
