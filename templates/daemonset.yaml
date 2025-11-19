@@ -23,6 +23,11 @@ spec:
           securityContext:
             runAsUser: {{ .Values.securityContext.runAsUser }}
             privileged: {{ .Values.securityContext.privileged }}
+          command:
+            - /bin/sh
+            - '-c'
+          args:
+            - sed "s|<agent_name>change_me</agent_name>|<agent_name>${WAZUH_AGENT_GROUP}-${NAME}</agent_name>|g" /var/ossec/etc/ossec.conf.tmp > /var/ossec/etc/ossec.conf && /init
           env:
             - name: WAZUH_MANAGER
               value: "{{ .Values.manager.host }}"
@@ -40,7 +45,7 @@ spec:
             - name: var-log
               mountPath: /var/log
             - name: wazuh-config
-              mountPath: /var/ossec/etc/ossec.conf
+              mountPath: /var/ossec/etc/ossec.conf.tmp
               subPath: ossec.conf
       volumes:
         - name: var-run
